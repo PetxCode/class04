@@ -1,12 +1,11 @@
 import React from "react";
 import WorkHome from "./component/WorkHome";
-import AudioWork from "./Peter/AudioWork";
-import Peter from "./Peter/Peter";
+import GameScreen from "./component/SimpleGame/GameScreen";
 
 const App = () => {
   return (
     <div>
-      <WorkHome />
+      <GameScreen />
     </div>
   );
 };
