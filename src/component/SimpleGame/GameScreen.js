@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import asset from "./assets/1.png";
+import asset0 from "./assets/0.png";
+import asset1 from "./assets/2.png";
+import asset2 from "./assets/3.png";
+import asset3 from "./assets/4.png";
+import asset4 from "./assets/5.png";
 
 const GameScreen = () => {
   const [picker, setPicker] = useState(0);
   const [computer, setComputer] = useState(0);
 
   const guessValue = (min, max) => {
-    return setComputer(Math.floor(Math.random() * (max - min) + min));
+    return setComputer(Math.floor(Math.random() * (max - min + 1) + min));
   };
 
   useEffect(() => {
@@ -18,7 +24,21 @@ const GameScreen = () => {
         <NameSection>Peter's Game</NameSection>
         <RowSection>
           <RowWrapper>
-            <BoxSection>{picker}</BoxSection>
+            <BoxSection>
+              {picker === 0 ? (
+                <Image src={asset0} />
+              ) : picker === 1 ? (
+                <Image src={asset} />
+              ) : picker === 2 ? (
+                <Image src={asset1} />
+              ) : picker === 3 ? (
+                <Image src={asset2} />
+              ) : picker === 4 ? (
+                <Image src={asset3} />
+              ) : picker === 5 ? (
+                <Image src={asset4} />
+              ) : null}
+            </BoxSection>
             <Number>
               <DisplayBox
                 onClick={() => {
@@ -85,6 +105,12 @@ const GameScreen = () => {
 
 export default GameScreen;
 
+const Image = styled.img`
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 3px solid black;
+`;
 const DisplayResult = styled.div``;
 const Number = styled.div`
   display: flex;
